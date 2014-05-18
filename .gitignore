@@ -1,0 +1,7 @@
+# Python
+server/venv
+*.pyc
+*.pyo
+
+# IDEs
+.idea
