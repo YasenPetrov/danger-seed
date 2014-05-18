@@ -3,13 +3,12 @@
 # Set up Python Package Management
 ./ppm.sh;
 
+# Make sure we are in the server root
+cd $SERVER_ROOT;
+
 # Create the DB schema.
-# mkdir -p src;
-# django-admin.py startproject --template=template project src;
-cd server;
 chmod +x manage.py;
 ./manage.py syncdb --noinput;
-
 
 # Create a default user:password of admin:admin.
 # Use to login to the Django admin site if enabled.

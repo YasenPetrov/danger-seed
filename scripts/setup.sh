@@ -18,4 +18,4 @@ cd $SCRIPTS_ROOT;
 
 # Custom sequence of installation scripts depending on
 # technologies used.
-. ppm.sh;
+. git-hooks/django-commit.sh;
