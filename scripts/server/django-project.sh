@@ -1,7 +1,5 @@
 #!/bin/bash
 
-CURDIR=$PWD;
-
 # Set up Python Package Management
 . $SCRIPTS/server/ppm.sh;
 
@@ -12,5 +10,9 @@ cd $SERVER;
 mkdir -p project;
 django-admin.py startproject project .;
 
-# Revert back to previous directory
-cd $CURDIR;
+echo "
+venv
+*.pyc
+*.pyo
+*.sqlite3
+" > .gitignore

@@ -1,8 +1,2 @@
-# Python
-server/venv
-*.pyc
-*.pyo
-*.sqlite3
-
 # IDEs
 .idea
