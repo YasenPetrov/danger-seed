@@ -8,14 +8,16 @@ INFO=${BOLD}$(tput setaf 2);
 RESET=$(tput sgr0);
 
 # Directory Variables for use with dependent scripts.
-SCRIPTS_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";
-PROJECT_ROOT="$SCRIPTS_ROOT/..";
-SERVER_ROOT="$PROJECT_ROOT/server";
-CLIENT_ROOT="$PROJECT_ROOT/client";
+SCRIPTS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";
+PROJECT="$SCRIPTS/..";
+SERVER="$PROJECT/server";
+CLIENT="$PROJECT/client";
 
-# Move into scripts directory to run scripts.
-cd $SCRIPTS_ROOT;
+# Project Creation
+#. $SCRIPTS/client/angular-grunt-project.sh;
+#. $SCRIPTS/server/django-project.sh
 
-# Custom sequence of installation scripts depending on
-# technologies used.
-. git-hooks/django-commit.sh;
+# Run custom setup commands
+. $SCRIPTS/client/angular-grunt.sh;
+. $SCRIPTS/server/django.sh;
+. $SCRIPTS/git-hooks/django-angular-grunt.sh;

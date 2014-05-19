@@ -23,14 +23,14 @@ else
 fi
 
 # Move into server folder to install required libraries.
-cd $SERVER_ROOT;
+cd $SERVER;
 
 # Create a virtual environment where all python dependencies
 # specific to this project will live. Allows for projects
 # to have differing versions of external libraries without
 # causing conflicts.
 virtualenv venv;
-source ./venv/bin/activate;
+. venv/bin/activate;
 mkdir -p $HOME/.pip_packages;
 
 # Install project requirements

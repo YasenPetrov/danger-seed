@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Set up Python Package Management
-./ppm.sh;
+. $SCRIPTS/server/ppm.sh;
 
 # Make sure we are in the server root
-cd $SERVER_ROOT;
+cd $SERVER;
 
 # Create the DB schema.
 chmod +x manage.py;
@@ -39,18 +39,18 @@ rm auth.json;
 # Create a helper to avoid the cumbersome task of
 # loading the virtual environment and changing
 # directories before starting django.
-cd ..;
-echo "#!/bin/bash
-
-function finish {
-    deactivate;
-}
-trap finish EXIT;
-
-DIR=\"\$( cd \"\$( dirname \"\${BASH_SOURCE[0]}\" )\" && pwd )\";
-cd $DIR;
-
-source ./venv/bin/activate;
-cd src/;
-./manage.py \"\$@\";" > .manage;
-chmod +x .manage;
+#cd ..;
+#echo "#!/bin/bash
+#
+#function finish {
+#    deactivate;
+#}
+#trap finish EXIT;
+#
+#DIR=\"\$( cd \"\$( dirname \"\${BASH_SOURCE[0]}\" )\" && pwd )\";
+#cd $DIR;
+#
+#source ./venv/bin/activate;
+#cd src/;
+#./manage.py \"\$@\";" > .manage;
+#chmod +x .manage;
