@@ -1,11 +1,15 @@
 {project}
 ==========
 
-{project} has had a development scaffold put in place to encourage best practices; the focus being on Test-Driven Development and Continuous Integration - badly tested code that is stale tends to break. This also uses company conventions to allow for faster implementation and familiarity with other developers' work.
+##About
+
+{description}
 
 ##Setup
 
-To setup your development environment, please run:
+This project has had a development scaffold put in place to encourage best practices; the focus being on Test-Driven Development and Continuous Integration - badly tested code that is stale tends to break. This also uses company conventions to allow for faster implementation and familiarity with other developers' work.
+
+To set up your development environment, simply run:
 
     . scripts/setup.sh;
     
@@ -15,7 +19,7 @@ Client
 
 * Check you have the required frontend dependecies installed (node.js, ruby)
 * Install libraries required for main build tool (grunt) to work correctly
-* Install project dependencies (package.json) and client side scripts (bower.json)
+* Install project dependencies through package.json (e.g. bower) and client side scripts through bower (e.g. angular)
 
 Server
 
