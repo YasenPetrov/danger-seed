@@ -13,11 +13,13 @@ PROJECT="$SCRIPTS/..";
 SERVER="$PROJECT/server";
 CLIENT="$PROJECT/client";
 
-# Project Creation
-#. $SCRIPTS/client/angular-grunt-project.sh;
-. $SCRIPTS/server/django-project.sh
-
-# Run custom setup commands
-#. $SCRIPTS/client/angular-grunt.sh;
-#. $SCRIPTS/server/django.sh;
-#. $SCRIPTS/git-hooks/django-angular-grunt.sh;
+if [ "$1" == "create" ]; then
+    # Project Creation
+    . $SCRIPTS/client/angular-grunt-project.sh;
+    . $SCRIPTS/server/django-project.sh
+else
+    # Run custom setup commands
+    . $SCRIPTS/client/angular-grunt.sh;
+    . $SCRIPTS/server/django.sh;
+    . $SCRIPTS/git-hooks/django-angular-grunt.sh;
+fi
