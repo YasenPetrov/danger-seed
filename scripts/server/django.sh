@@ -9,6 +9,7 @@ cd $SERVER;
 # Create the DB schema.
 chmod +x manage.py;
 ./manage.py syncdb --noinput;
+./manage.py migrate;
 
 # Create a default user:password of admin:admin.
 # Use to login to the Django admin site if enabled.
