@@ -21,5 +21,5 @@ else
     # Run custom setup commands
     . $SCRIPTS/client/angular-grunt.sh;
     . $SCRIPTS/server/django.sh;
-    . $SCRIPTS/git-hooks/django-angular-grunt.sh;
+    . $SCRIPTS/git-hooks/setup.sh django angular-grunt;
 fi
