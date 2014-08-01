@@ -8,12 +8,11 @@ cd $SERVER;
 
 # Create the DB schema.
 chmod +x manage.py;
-./manage.py syncdb --noinput;
 ./manage.py migrate;
 
 # Create a default user:password of admin:admin.
 # Use to login to the Django admin site if enabled.
-TIME=$(date +"%Y-%m-%d");
+TIME=$(date +"%Y-%m-%d %H:%M:%S%z");
 echo "[
       {
         \"pk\": 1,

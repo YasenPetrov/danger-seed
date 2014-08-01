@@ -6,7 +6,6 @@ cd $SERVER;
 
 echo "django
 djangorestframework
-south
 ipython" > requirements.txt;
 
 # Set up Python Package Management
@@ -39,7 +38,7 @@ is isolated and you can now install packages without corrupting the global packa
 with the project should already be available, mainly django, so you can run commands from the server root as
 normal:
 
-    ./manage.py (runserver|test|syncdb|migrate)
+    ./manage.py (runserver|test|migrate)
 
 and so on.
 

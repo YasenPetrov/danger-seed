@@ -19,5 +19,4 @@ git pull;
 cd ${SERVER};
 . venv/bin/activate;
 pip install -r requirements.txt;
-./manage.py syncdb --noinput;
 ./manage.py migrate;" >> .git/hooks/post-commit;
