@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Set up Python Package Management
-. $SCRIPTS/server/ppm.sh;
+. $SCRIPTS/plugins/dependencies/ppm.sh;
+. $SCRIPTS/plugins/virtualenv-pip.sh;
 
 # Make sure we are in the server root
 cd $SERVER;
@@ -36,21 +37,32 @@ echo "[
 ./manage.py loaddata auth.json;
 rm auth.json;
 
-# Create a helper to avoid the cumbersome task of
-# loading the virtual environment and changing
-# directories before starting django.
-#cd ..;
-#echo "#!/bin/bash
-#
-#function finish {
-#    deactivate;
-#}
-#trap finish EXIT;
-#
-#DIR=\"\$( cd \"\$( dirname \"\${BASH_SOURCE[0]}\" )\" && pwd )\";
-#cd $DIR;
-#
-#source ./venv/bin/activate;
-#cd src/;
-#./manage.py \"\$@\";" > .manage;
-#chmod +x .manage;
+
+# Create git hooks for django
+echo "
+# Django
+cd ${SERVER};
+. venv/bin/activate;
+./manage.py test;" >> $PROJECT/.git/hooks/pre-commit;
+echo '
+if [ $? != 0 ]; then
+    exit 1;
+fi' >> $PROJECT/.git/hooks/pre-commit;
+
+echo "
+# Django
+cd ${PROJECT};
+git pull origin master;
+cd ${SERVER};
+. venv/bin/activate;" >> $PROJECT/.git/hooks/post-commit;
+
+echo 'var="`pip install -r requirements.txt --no-index --find-links=file://$HOME/.pip_packages`";
+if [ $? -eq 0 ]; then
+    echo "INFO: All requirements are satisfied. No need to download from Package Index.";
+    printf "$var\n";
+else
+    echo "INFO: Requirements not found locally or error occured.";
+    printf "$var\n";
+    pip install --download-cache $HOME/.pip_packages -r requirements.txt;
+fi
+./manage.py migrate;' >> $PROJECT/.git/hooks/post-commit;

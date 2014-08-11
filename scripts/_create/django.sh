@@ -4,12 +4,12 @@
 mkdir -p $SERVER;
 cd $SERVER;
 
-echo "django
-djangorestframework
+echo "https://www.djangoproject.com/download/1.7c2/tarball/
 ipython" > requirements.txt;
 
 # Set up Python Package Management
-. $SCRIPTS/server/ppm.sh;
+. $SCRIPTS/plugins/dependencies/ppm.sh;
+. $SCRIPTS/plugins/virtualenv-pip.sh;
 
 # Create the initial project structure
 mkdir -p project;

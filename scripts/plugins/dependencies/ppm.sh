@@ -26,24 +26,3 @@ if [ $? != 0 ]; then
         exit 1;
     fi
 fi;
-
-# Move into server folder to install required libraries.
-cd $SERVER;
-
-# Create a virtual environment where all python dependencies
-# specific to this project will live. Allows for projects
-# to have differing versions of external libraries without
-# causing conflicts.
-virtualenv venv;
-. venv/bin/activate;
-mkdir -p $HOME/.pip_packages;
-
-# Install project requirements
-var="`pip install -r requirements.txt --no-index --find-links=file://$HOME/.pip_packages`";
-if [ $? -eq 0 ]; then
-    echo "INFO: All requirements are satisfied. No need to download from Package Index.";
-    printf "$var\n";
-else
-    pip install --download $HOME/.pip_packages -r requirements.txt;
-    pip install -r requirements.txt --no-index --find-links=file://$HOME/.pip_packages;
-fi

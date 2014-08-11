@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Make sure we have node installed
-. $SCRIPTS/client/dependency/node.sh;
+. $SCRIPTS/plugins/dependencies/node.sh;
 
 # As angular generator requires SASS/Compass check that too
-. $SCRIPTS/client/dependency/sass.sh;
+. $SCRIPTS/plugins/dependencies/sass.sh;
 
 mkdir -p $CLIENT;
 cd $CLIENT;

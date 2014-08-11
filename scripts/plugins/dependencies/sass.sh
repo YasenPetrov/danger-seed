@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Make sure we have ruby installed
-. $SCRIPTS/client/dependency/ruby.sh
+. $SCRIPTS/plugins/dependencies/ruby.sh
 
 echo 'Installing Compass (if required)...'
 
