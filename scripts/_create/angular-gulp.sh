@@ -32,7 +32,7 @@ var ngConstant = require('gulp-ng-constant');
 gulp.task('config:local', function () {
   gulp.src('env_configs/local/config.json')
     .pipe(ngConstant())
-    .pipe(gulp.dest('www/js'));
+    .pipe(gulp.dest('app/scripts'));
 });" > gulp/environment.js;
 
 echo "Client Commands
