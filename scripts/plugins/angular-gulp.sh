@@ -28,7 +28,7 @@ if [ $? != 0 ]; then
     exit 1;
 fi' >> $PROJECT/.git/hooks/pre-commit;
 echo "
-# Yeoman Angular Grunt
+# Yeoman Angular Gulp
 cd ${PROJECT};
 git pull origin master;
 cd ${CLIENT};
