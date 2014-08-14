@@ -6,7 +6,8 @@ cd $SERVER;
 
 echo "https://www.djangoproject.com/download/1.7c2/tarball/
 djangorestframework
-ipython" > requirements.txt;
+ipython
+ipdb" > requirements.txt;
 
 # Set up Python Package Management
 . $SCRIPTS/plugins/dependencies/ppm.sh;
