@@ -4,7 +4,7 @@
 mkdir -p $SERVER;
 cd $SERVER;
 
-echo "https://www.djangoproject.com/download/1.7c2/tarball/
+echo "django
 ipython
 ipdb" > requirements.txt;
 

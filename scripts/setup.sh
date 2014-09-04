@@ -13,7 +13,7 @@ echo "#!/bin/bash" > $PROJECT/.git/hooks/pre-commit;
 echo "#!/bin/bash" > $PROJECT/.git/hooks/post-commit;
 
 # Setup
-for var in "$@"
+for var in $(cat $SCRIPTS/vars)
 do
   . $SCRIPTS/plugins/$var.sh;
 done
