@@ -5,6 +5,7 @@ SCRIPTS="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";
 PROJECT="$SCRIPTS/..";
 SERVER="$PROJECT/server";
 CLIENT="$PROJECT/client";
+SERVICES="$PROJECT/services";
 
 . $SCRIPTS/vars.sh;
 
